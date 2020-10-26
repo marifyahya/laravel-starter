@@ -42,6 +42,11 @@ class Menu extends Model
         return $this->hasMany(Permission::class, 'menu_id', 'menu_id');
     }
 
+    public function menuRole()
+    {
+        return $this->hasMany(MenuRole::class, 'menu_id', 'menu_id');
+    }
+
     public static function getAllMenuPermission() {
         return Menu::with(['permission' => function($q){
                 $q->orderBy('permission_name');

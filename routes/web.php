@@ -19,7 +19,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/', [DashboardController::class, 'index']);
 
-    Route::group(['prefix' => 'menu'], function () {
+    Route::group(['prefix' => 'menu', 'middleware' => 'page.access:menu'], function () {
         Route::get('/', [MenuController::class, 'index'])->name('menu');
         Route::get('table', [MenuController::class, 'table']);
         Route::get('create', [MenuController::class, 'create']);

@@ -29,7 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('/{id}', [MenuController::class, 'destroy']);
     });
 
-    Route::group(['prefix' => 'permission'], function () {
+    Route::group(['prefix' => 'permission', 'middleware' => 'page.access:permission'], function () {
         Route::get('/', [PermissionController::class, 'index'])->name('permission');
         Route::get('table', [PermissionController::class, 'table']);
         Route::get('create', [PermissionController::class, 'create']);
@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('/{id}', [PermissionController::class, 'destroy']);
     });
 
-    Route::group(['prefix' => 'role'], function () {
+    Route::group(['prefix' => 'role', 'middleware' => 'page.access:role'], function () {
         Route::get('/', [RoleController::class, 'index'])->name('role');
         Route::get('table', [RoleController::class, 'table']);
         Route::get('create', [RoleController::class, 'create']);
@@ -49,18 +49,18 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('/{id}', [RoleController::class, 'destroy']);
     });
 
-    Route::group(['prefix' => 'customize-theme'], function () {
+    Route::group(['prefix' => 'customize-theme', 'middleware' => 'page.access:customize-theme'], function () {
         Route::get('/', [CustomizeThemeController::class, 'index']);
         Route::post('/', [CustomizeThemeController::class, 'setThemes']);
         Route::delete('/', [CustomizeThemeController::class, 'resetThemes']);
     });
 
-    Route::group(['prefix' => 'site-identity'], function () {
+    Route::group(['prefix' => 'site-identity', 'middleware' => 'page.access:site-identity'], function () {
         Route::get('/', [SiteIdentityController::class, 'index']);
         Route::post('/', [SiteIdentityController::class, 'update']);
     });
 
-    Route::group(['prefix' => 'employee'], function () {
+    Route::group(['prefix' => 'employee', 'middleware' => 'page.access:employee'], function () {
         Route::get('/', [EmployeeController::class, 'index'])->name('employee');
         Route::get('table', [EmployeeController::class, 'table']);
         Route::get('create', [EmployeeController::class, 'create']);

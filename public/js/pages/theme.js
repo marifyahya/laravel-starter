@@ -438,7 +438,7 @@
 		var l = Ladda.create(this);
 		var themes = {
 			'body': $('body').attr('class'),
-			'brand_link': $('.brand-link').attr('class'),
+			'brand-link': $('.brand-link').attr('class'),
 			'main-footer': $('.main-footer').attr('class'),
 			'main-header': $('.main-header').attr('class'),
 			'main-sidebar': $('.main-sidebar').attr('class'),

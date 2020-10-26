@@ -21,7 +21,7 @@ class PageAccess
         $menu = Menu::whereHas('menuRole', function($query){
             $query->where('role_id', Auth::user()->role_id);
         })
-        ->where('menu_name', $page)
+        ->where('link', $page)
         ->where('state', '1')
         ->count();
         
